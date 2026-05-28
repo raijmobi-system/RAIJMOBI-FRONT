@@ -1,7 +1,9 @@
-type ButtonProps = {
-  text: string
-  onClick?: () => void
-  type?: "button" | "submit" | "reset"
+"use client";
+
+interface ButtonProps {
+  text: string;
+  onClick?: () => void;
+  type?: "button" | "submit" | "reset";
 }
 
 export default function Button({
@@ -13,9 +15,9 @@ export default function Button({
     <button
       type={type}
       onClick={onClick}
-      className="bg-blue-500 text-white px-4 py-2 rounded"
+      className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg transition"
     >
       {text}
     </button>
-  )
+  );
 }
