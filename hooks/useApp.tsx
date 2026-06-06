@@ -433,6 +433,23 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     }));
   }, []);
 
+  // const sendChatMessage = useCallback((contactName: string, text: string) => {
+  //   const now = new Date();
+  //   const timeStr = `${now.getHours().toString().padStart(2, "0")}:${now.getMinutes().toString().padStart(2, "0")}`;
+  //   const newMsg: ChatMessage = {
+  //     sender: "Fernando",
+  //     avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuD_6pD3UrgnmdQSlbfS5Gu7UKhOqzWj05BJaiirrh7Kk4AZ8JdwMK00ASimxpm6M3wUDl1kVKe0zVqftZtW2u7LoNHeF1epmP8d_IXr9Jwvoo4Vxw-03Hp170_HxXfgZtU--rqpV462PNqmgaDbnoVsmavhLsUV7sWo2IHrQs_OQZL4pkpUUIvm8UB8yL1JUI0sd1cwEkd0WIzpM8gF03rZWTtoq7UY9X9k2J2uFpZvfD68Zh-94vW87HXe9jXbcpBeKhQF_I-8_Kv5",
+  //     text,
+  //     time: timeStr,
+  //   };
+  //   // Atualizar estado do chat - como o estado é mockado, simulamos atualização
+  //   console.log(`Mensagem enviada para ${contactName}: ${text}`);
+  // }, []);
+
+  // ... dentro do AppProvider
+
+  const [chatData, setChatData] = useState<Record<string, ChatContact>>(chatDataMock);
+
   const sendChatMessage = useCallback((contactName: string, text: string) => {
     const now = new Date();
     const timeStr = `${now.getHours().toString().padStart(2, "0")}:${now.getMinutes().toString().padStart(2, "0")}`;
@@ -442,9 +459,20 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       text,
       time: timeStr,
     };
-    // Atualizar estado do chat - como o estado é mockado, simulamos atualização
-    console.log(`Mensagem enviada para ${contactName}: ${text}`);
+    setChatData(prev => {
+      const contact = prev[contactName];
+      if (!contact) return prev;
+      return {
+        ...prev,
+        [contactName]: {
+          ...contact,
+          messages: [...contact.messages, newMsg],
+        },
+      };
+    });
   }, []);
+
+  // No objeto value, inclua chatData e sendChatMessage (já estão)
 
   const markNotificationRead = useCallback((id: number) => {
     setNotifications(prev => prev.map(n => n.id === id ? { ...n, read: true } : n));

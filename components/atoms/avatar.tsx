@@ -14,7 +14,7 @@ const sizeMap = {
   lg: "w-14 h-14",
 };
 
-export const Avatar = ({ src, alt, size = "md", border = false }: AvatarProps) => {
+export const Avatar = ({ src, alt, size = "sm", border = false }: AvatarProps) => {
   return (
     <div className={css({
       borderRadius: "full",
@@ -25,7 +25,18 @@ export const Avatar = ({ src, alt, size = "md", border = false }: AvatarProps) =
       border: border ? "2px solid" : "none",
       borderColor: "brand.green",
     })}>
-      <img src={src} alt={alt} className={css({ width: "full", height: "full", objectFit: "cover" })} />
+      {/* <img src={src} alt={alt} className={css({ width: "full", height: "full", objectFit: "cover" })} /> */}
+      <img
+        src={src}
+        alt={alt}
+        className={css({
+          width: "full",
+          height: "full",
+          objectFit: "cover",
+          minW: 0,
+          maxW: "100%"
+        })}
+      />
     </div>
   );
 };

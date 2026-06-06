@@ -1,7 +1,7 @@
 "use client";
 
 import { AuthTemplate } from "@/components/templates/authTemplate";
-import { LoginForms } from "@/components/organisms/loginForms";
+import { LoginForms } from "@/components/organisms/LoginForms";
 import { useApp } from "@/hooks/useApp";
 import { useRouter } from "next/navigation";
 
