@@ -19,6 +19,8 @@ interface RideDetailModalProps {
 }
 
 export const RideDetailModal = ({ isOpen, onClose, ride, context, onParticipate, onCancel, onEdit }: RideDetailModalProps) => {
+    console.log("Modal chamado:", { isOpen, ride });
+
   if (!isOpen || !ride) return null;
 
   const isDriver = context === "driver";

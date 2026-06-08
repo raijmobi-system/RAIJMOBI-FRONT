@@ -55,7 +55,7 @@ export const MyRidesTemplate = () => {
     <>
       <PageHeader title="Minhas Caronas" onNotificationsClick={() => setIsNotificationOpen(true)} notificationCount={getUnreadCount()} />
       <div className="px-4 md:px-8 py-6 max-w-[1400px] mx-auto">
-        <MyRidesSection
+        {/* <MyRidesSection
           upcomingRides={upcomingRides}
           driverRides={driverRidesList}
           pastRides={pastRides}
@@ -65,8 +65,21 @@ export const MyRidesTemplate = () => {
             setIsEditRideOpen(true);
           }}
           onRequests={(id) => setRequestsRideId(id)}
-          onRideClick={(id, isDriver) => setSelectedRide({ id, isDriver })}
-        />
+          // onRideClick={(id, isDriver) => setSelectedRide({ id, isDriver })}
+        /> */}
+        <MyRidesSection
+  upcomingRides={upcomingRides}
+  driverRides={driverRidesList}
+  pastRides={pastRides}
+  onCreateRide={() => setIsCreateRideOpen(true)}
+  onEditRide={(id) => {
+    setEditingRideId(id);
+    setIsEditRideOpen(true);
+  }}
+  onRequests={(id) => setRequestsRideId(id)}
+  onRideClick={(id, isDriver) => setSelectedRide({ id, isDriver })}   // ← adicione esta linha
+
+/>
       </div>
       <NotificationModal isOpen={isNotificationOpen} onClose={() => setIsNotificationOpen(false)} notifications={notifications} onMarkRead={markNotificationRead} onMarkAllRead={markAllNotificationsRead} />
       {selectedRide && (

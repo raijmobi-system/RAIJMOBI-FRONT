@@ -34,7 +34,7 @@ export const Sidebar = () => {
           <Icon name="directions_car" size={22} fill className={css({ color: "white" })} />
         </div>
         <div>
-          <h1 className={css({ fontSize: "headlineMd", color: "white", letterSpacing: "tight" })}>Kiwidi</h1>
+          <h1 className={css({ fontSize: "headlineMd", color: "white", letterSpacing: "tight" })}>Raijmobi</h1>
           <p className={css({ fontSize: "11px", color: "white/50", leading: "none", mt: "0.5" })}>Caronas inteligentes</p>
         </div>
       </div>

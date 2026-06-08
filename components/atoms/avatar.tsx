@@ -15,28 +15,10 @@ const sizeMap = {
 };
 
 export const Avatar = ({ src, alt, size = "sm", border = false }: AvatarProps) => {
+  const sizePx = size === "sm" ? 32 : size === "md" ? 40 : 56;
   return (
-    <div className={css({
-      borderRadius: "full",
-      overflow: "hidden",
-      flexShrink: 0,
-      width: sizeMap[size],
-      height: sizeMap[size],
-      border: border ? "2px solid" : "none",
-      borderColor: "brand.green",
-    })}>
-      {/* <img src={src} alt={alt} className={css({ width: "full", height: "full", objectFit: "cover" })} /> */}
-      <img
-        src={src}
-        alt={alt}
-        className={css({
-          width: "full",
-          height: "full",
-          objectFit: "cover",
-          minW: 0,
-          maxW: "100%"
-        })}
-      />
+    <div className={css({ rounded: "full", overflow: "hidden", flexShrink: 0, border: border ? "2px solid" : "none", borderColor: "brand.green" })}>
+      <Image src={src} alt={alt} width={sizePx} height={sizePx} className={css({ objectFit: "cover" })}unoptimized />
     </div>
   );
 };

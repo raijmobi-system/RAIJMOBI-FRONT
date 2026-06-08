@@ -118,13 +118,13 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
   const [payments, setPayments] = useState<Payment[]>([
     { type: "credit_card", description: "Visa terminando em 8890" },
-    { type: "wallet", description: "Carteira Kiwidi (R$ 45,00)" },
+    { type: "wallet", description: "Carteira Raijmobi (R$ 45,00)" },
   ]);
 
   const rideDetailsData: Record<string, RideDetail> = {
-    "ride-mossoro-1": {
+    "KIW-001": {
       id: "KIW-001",
-      title: "Kiwidi Express - Mossoró",
+      title: "Raijmobi Express - Mossoró",
       driver: {
         name: "Rafael Fernandes",
         photo: "https://lh3.googleusercontent.com/aida-public/AB6AXuDcC3IhLdXUf0oxN_AVlMYLpo7A1vT1tEmhQoS3zfEIaPuor4bHCLS4ye9F0GFysVV849x2tI_MaQEQhkrXEEeOQ6D8VoSyA70eIYxGIj5FsAk-a_2ncGQT6tLIt9vDHqmL-ZDcigr5fS0RsggLBxtwCy9SpKbx94tMiz0JWP42YNSSnF_jO5zKzq8Mu1KIKSh_mzo9DWYo9SMtunzO6cMhF0pufxUXh3IkDvqJrXS0H1l8iXSU9BQX9Fhl2bwm2DIWbTeBZ6XcZlqX",
@@ -138,9 +138,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       seats: "4/6",
       price: "R$ 49,99",
     },
-    "ride-caico-2": {
+    "KIW-002": {
       id: "KIW-002",
-      title: "Kiwidi Trip - Caicó",
+      title: "Raijmobi Trip - Caicó",
       driver: {
         name: "Rafael Fernandes",
         photo: "https://lh3.googleusercontent.com/aida-public/AB6AXuDcC3IhLdXUf0oxN_AVlMYLpo7A1vT1tEmhQoS3zfEIaPuor4bHCLS4ye9F0GFysVV849x2tI_MaQEQhkrXEEeOQ6D8VoSyA70eIYxGIj5FsAk-a_2ncGQT6tLIt9vDHqmL-ZDcigr5fS0RsggLBxtwCy9SpKbx94tMiz0JWP42YNSSnF_jO5zKzq8Mu1KIKSh_mzo9DWYo9SMtunzO6cMhF0pufxUXh3IkDvqJrXS0H1l8iXSU9BQX9Fhl2bwm2DIWbTeBZ6XcZlqX",
@@ -154,11 +154,11 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       seats: "3/6",
       price: "R$ 55,00",
     },
-    "ride-natal-3": {
+    "KIW-003": {
       id: "KIW-003",
-      title: "Kiwidi Express - Natal",
+      title: "Raijmobi Express - Natal",
       driver: {
-        name: "Mariana Kiwidi",
+        name: "Mariana Raijmobi",
         photo: "https://lh3.googleusercontent.com/aida-public/AB6AXuDpUwLlQgB0-a2yub7CKhX42ESR5GGzghPIiSzwLgRPypUtKqDdxzEByiexHEYZaFX1j0u5RAiAcl3JYRhB-GFrVvZAUvRy3zHFYgmyXh1jJB8iHXo3QdMXwebOfQOPwkSqQTO1VAXp-bUI-a-OKYkN4vAKAJi9lyGyCujV2ejEhCs7XFtRwBysRdFJW3qRNRlXGuX2QGKyJ6wmBHAkaoIY6mWt5mDqOIYF1K9OVH-sk30tGILkwy_bwdNXbYM2UI6mcxM0yfuuxZL8",
         rating: 4.9,
       },
@@ -170,9 +170,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       seats: "2/6",
       price: "R$ 39,90",
     },
-    "ride-mossoro-4": {
+    "KIW-004": {
       id: "KIW-004",
-      title: "Kiwidi Express - Mossoró",
+      title: "Raijmobi Express - Mossoró",
       driver: {
         name: "João Silva",
         photo: "https://lh3.googleusercontent.com/aida-public/AB6AXuADtPMQEGhzVrKl9yWhjG8pHpR6c9q0uiNJ308XvUxHUivipya_MRCcsjqqm8nA2bsxHfS9DFFmfWP4_NfR1_wy6MsowKVpdbhKpelA5sSFErytweWsBVtCOlJ5wAuT7gDWMtChPHMT3WFd4Tex9xvHFFN3KG6mFJgYgWG7Ng44VS3ucfVsGAAsXuV_kJGkdCxqYDvkokDFgbD5KrUb3-hMf1YUs3hHMaujzU8wcdnYPtMs04ztvnG3UF1yltpzZQKf1LvbfY_NuAOc",
@@ -186,9 +186,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       seats: "4/6",
       price: "Grátis",
     },
-    "ride-caico-5": {
+    "KIW-005": {
       id: "KIW-005",
-      title: "Kiwidi Trip - Caicó",
+      title: "Raijmobi Trip - Caicó",
       driver: {
         name: "Rafael Fernandes",
         photo: "https://lh3.googleusercontent.com/aida-public/AB6AXuDcC3IhLdXUf0oxN_AVlMYLpo7A1vT1tEmhQoS3zfEIaPuor4bHCLS4ye9F0GFysVV849x2tI_MaQEQhkrXEEeOQ6D8VoSyA70eIYxGIj5FsAk-a_2ncGQT6tLIt9vDHqmL-ZDcigr5fS0RsggLBxtwCy9SpKbx94tMiz0JWP42YNSSnF_jO5zKzq8Mu1KIKSh_mzo9DWYo9SMtunzO6cMhF0pufxUXh3IkDvqJrXS0H1l8iXSU9BQX9Fhl2bwm2DIWbTeBZ6XcZlqX",
@@ -205,9 +205,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const myRidesDetails: Record<string, MyRide> = {
-    "myride-confirmed": {
+    "KIW-001": {
       id: "KIW-001",
-      title: "Kiwidi Express S01",
+      title: "Raijmobi Express S01",
       status: "Confirmado",
       driver: {
         name: "Rafael Fernandes",
@@ -223,9 +223,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       price: "R$ 49,99",
       cancelable: true,
     },
-    "myride-rejected": {
+    "KIW-002": {
       id: "KIW-002",
-      title: "Kiwidi Express S01",
+      title: "Raijmobi Express S01",
       status: "Recusado",
       driver: {
         name: "Rafael Fernandes",
@@ -241,9 +241,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       price: "R$ 49,99",
       cancelable: false,
     },
-    "myride-pending": {
+    "KIW-003": {
       id: "KIW-003",
-      title: "Kiwidi Express S01",
+      title: "Raijmobi Express S01",
       status: "Pendente",
       driver: {
         name: "Rafael Fernandes",
@@ -259,7 +259,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       price: "R$ 49,99",
       cancelable: true,
     },
-    "myride-finished": {
+    "KIW-004": {
       id: "KIW-004",
       title: "Natal → Mossoró",
       status: "Finalizada",
@@ -280,7 +280,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const [driverRides, setDriverRides] = useState<Record<string, DriverRide>>({
-    "driver-mossoro": {
+    "KIW-D01": {
       id: "KIW-D01",
       title: "Mossoró → Pau dos Ferros",
       status: "Ativa",
@@ -297,9 +297,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       seats: "4/6",
       price: "49.99",
       cancelable: true,
-      passengers: ["Rafael Fernandes", "Mariana Kiwidi", "João Silva"],
+      passengers: ["Rafael Fernandes", "Mariana Raijmobi", "João Silva"],
     },
-    "driver-caico": {
+    "KIW-D02": {
       id: "KIW-D02",
       title: "Pau dos Ferros → Caicó",
       status: "Ativa",
@@ -339,12 +339,12 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         { sender: "Rafael Fernandes", avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDcC3IhLdXUf0oxN_AVlMYLpo7A1vT1tEmhQoS3zfEIaPuor4bHCLS4ye9F0GFysVV849x2tI_MaQEQhkrXEEeOQ6D8VoSyA70eIYxGIj5FsAk-a_2ncGQT6tLIt9vDHqmL-ZDcigr5fS0RsggLBxtwCy9SpKbx94tMiz0JWP42YNSSnF_jO5zKzq8Mu1KIKSh_mzo9DWYo9SMtunzO6cMhF0pufxUXh3IkDvqJrXS0H1l8iXSU9BQX9Fhl2bwm2DIWbTeBZ6XcZlqX", text: "Sim! Tô chegando no ponto de encontro!", time: "14:25" },
       ],
     },
-    "Mariana Kiwidi": {
+    "Mariana Raijmobi": {
       avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDpUwLlQgB0-a2yub7CKhX42ESR5GGzghPIiSzwLgRPypUtKqDdxzEByiexHEYZaFX1j0u5RAiAcl3JYRhB-GFrVvZAUvRy3zHFYgmyXh1jJB8iHXo3QdMXwebOfQOPwkSqQTO1VAXp-bUI-a-OKYkN4vAKAJi9lyGyCujV2ejEhCs7XFtRwBysRdFJW3qRNRlXGuX2QGKyJ6wmBHAkaoIY6mWt5mDqOIYF1K9OVH-sk30tGILkwy_bwdNXbYM2UI6mcxM0yfuuxZL8",
       messages: [
-        { sender: "Mariana Kiwidi", avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDpUwLlQgB0-a2yub7CKhX42ESR5GGzghPIiSzwLgRPypUtKqDdxzEByiexHEYZaFX1j0u5RAiAcl3JYRhB-GFrVvZAUvRy3zHFYgmyXh1jJB8iHXo3QdMXwebOfQOPwkSqQTO1VAXp-bUI-a-OKYkN4vAKAJi9lyGyCujV2ejEhCs7XFtRwBysRdFJW3qRNRlXGuX2QGKyJ6wmBHAkaoIY6mWt5mDqOIYF1K9OVH-sk30tGILkwy_bwdNXbYM2UI6mcxM0yfuuxZL8", text: "Oi Fer! Vai rolar aquela viagem?", time: "12:05" },
+        { sender: "Mariana Raijmobi", avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDpUwLlQgB0-a2yub7CKhX42ESR5GGzghPIiSzwLgRPypUtKqDdxzEByiexHEYZaFX1j0u5RAiAcl3JYRhB-GFrVvZAUvRy3zHFYgmyXh1jJB8iHXo3QdMXwebOfQOPwkSqQTO1VAXp-bUI-a-OKYkN4vAKAJi9lyGyCujV2ejEhCs7XFtRwBysRdFJW3qRNRlXGuX2QGKyJ6wmBHAkaoIY6mWt5mDqOIYF1K9OVH-sk30tGILkwy_bwdNXbYM2UI6mcxM0yfuuxZL8", text: "Oi Fer! Vai rolar aquela viagem?", time: "12:05" },
         { sender: "Fernando", avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuD_6pD3UrgnmdQSlbfS5Gu7UKhOqzWj05BJaiirrh7Kk4AZ8JdwMK00ASimxpm6M3wUDl1kVKe0zVqftZtW2u7LoNHeF1epmP8d_IXr9Jwvoo4Vxw-03Hp170_HxXfgZtU--rqpV462PNqmgaDbnoVsmavhLsUV7sWo2IHrQs_OQZL4pkpUUIvm8UB8yL1JUI0sd1cwEkd0WIzpM8gF03rZWTtoq7UY9X9k2J2uFpZvfD68Zh-94vW87HXe9jXbcpBeKhQF_I-8_Kv5", text: "Claro! Te encontro onde?", time: "12:06" },
-        { sender: "Mariana Kiwidi", avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDpUwLlQgB0-a2yub7CKhX42ESR5GGzghPIiSzwLgRPypUtKqDdxzEByiexHEYZaFX1j0u5RAiAcl3JYRhB-GFrVvZAUvRy3zHFYgmyXh1jJB8iHXo3QdMXwebOfQOPwkSqQTO1VAXp-bUI-a-OKYkN4vAKAJi9lyGyCujV2ejEhCs7XFtRwBysRdFJW3qRNRlXGuX2QGKyJ6wmBHAkaoIY6mWt5mDqOIYF1K9OVH-sk30tGILkwy_bwdNXbYM2UI6mcxM0yfuuxZL8", text: "Combinado, te espero na frente da farmácia.", time: "12:08" },
+        { sender: "Mariana Raijmobi", avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDpUwLlQgB0-a2yub7CKhX42ESR5GGzghPIiSzwLgRPypUtKqDdxzEByiexHEYZaFX1j0u5RAiAcl3JYRhB-GFrVvZAUvRy3zHFYgmyXh1jJB8iHXo3QdMXwebOfQOPwkSqQTO1VAXp-bUI-a-OKYkN4vAKAJi9lyGyCujV2ejEhCs7XFtRwBysRdFJW3qRNRlXGuX2QGKyJ6wmBHAkaoIY6mWt5mDqOIYF1K9OVH-sk30tGILkwy_bwdNXbYM2UI6mcxM0yfuuxZL8", text: "Combinado, te espero na frente da farmácia.", time: "12:08" },
       ],
     },
     "João Silva": {
@@ -359,7 +359,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [notifications, setNotifications] = useState<Notification[]>([
     { id: 1, title: "Carona Confirmada", message: "Rafael Fernandes confirmou sua carona para Mossoró.", time: "Agora", icon: "check_circle", color: "text-green-600 bg-green-50", read: false },
     { id: 2, title: "Nova Solicitação", message: "Ana Clara quer participar da sua carona.", time: "Há 5 min", icon: "person_add", color: "text-blue-600 bg-blue-50", read: false },
-    { id: 3, title: "Nova Mensagem", message: "Mariana Kiwidi enviou uma mensagem.", time: "Há 15 min", icon: "chat", color: "text-purple-600 bg-purple-50", read: false },
+    { id: 3, title: "Nova Mensagem", message: "Mariana Raijmobi enviou uma mensagem.", time: "Há 15 min", icon: "chat", color: "text-purple-600 bg-purple-50", read: false },
     { id: 4, title: "Promoção Especial", message: "Ganhe 50% de desconto na próxima viagem!", time: "Há 1 h", icon: "local_offer", color: "text-orange-600 bg-orange-50", read: true },
     { id: 5, title: "Lembrete de Viagem", message: "Sua carona para Caicó é amanhã às 09:30.", time: "Há 3 h", icon: "event", color: "text-amber-600 bg-amber-50", read: true },
     { id: 6, title: "Viagem Finalizada", message: "Sua viagem com João Silva foi concluída. Avalie!", time: "Ontem", icon: "star", color: "text-yellow-600 bg-yellow-50", read: true },
