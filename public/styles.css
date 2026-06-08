@@ -1608,6 +1608,34 @@
     margin-bottom: 0px;
 }
 
+  .c_\#333333 {
+    color: #333333;
+}
+
+  .c_outlineVariant\/0 {
+    --mix-color: color-mix(in srgb, var(--colors-outline-variant) 0%, transparent);
+}
+
+  .c_outlineVariant\/0,.c_outlineVariant\/70 {
+    color: var(--mix-color, var(--colors-outline-variant));
+}
+
+  .c_outlineVariant\/70 {
+    --mix-color: color-mix(in srgb, var(--colors-outline-variant) 70%, transparent);
+}
+
+  .c_outlineVariant\/10 {
+    --mix-color: color-mix(in srgb, var(--colors-outline-variant) 10%, transparent);
+}
+
+  .c_outlineVariant\/10,.c_outlineVariant\/120 {
+    color: var(--mix-color, var(--colors-outline-variant));
+}
+
+  .c_outlineVariant\/120 {
+    --mix-color: color-mix(in srgb, var(--colors-outline-variant) 120%, transparent);
+}
+
   .top_-0\.25rem {
     top: -0.25rem;
 }

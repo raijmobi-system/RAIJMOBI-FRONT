@@ -22,6 +22,11 @@ export const MyRidesTemplate = () => {
   const pastRides = Object.values(myRides).filter(r => r.status === "Finalizada");
   const driverRidesList = Object.values(driverRides);
 
+  // Cria um mapa com a contagem de solicitações pendentes para cada carona do motorista
+  const pendingCountMap = Object.fromEntries(
+    Object.keys(driverRides).map(id => [id, pendingRequests[id]?.length || 0])
+  );
+
   const handleCreateRide = (data: any) => {
     const selectedVehicle = vehicles[data.vehicleId];
     addDriverRide({
@@ -55,32 +60,21 @@ export const MyRidesTemplate = () => {
     <>
       <PageHeader title="Minhas Caronas" onNotificationsClick={() => setIsNotificationOpen(true)} notificationCount={getUnreadCount()} />
       <div className="px-4 md:px-8 py-6 max-w-[1400px] mx-auto">
-        {/* <MyRidesSection
+        <MyRidesSection
           upcomingRides={upcomingRides}
           driverRides={driverRidesList}
           pastRides={pastRides}
+          pendingCountMap={pendingCountMap}   // ← enviando para o componente
           onCreateRide={() => setIsCreateRideOpen(true)}
           onEditRide={(id) => {
             setEditingRideId(id);
             setIsEditRideOpen(true);
           }}
           onRequests={(id) => setRequestsRideId(id)}
-          // onRideClick={(id, isDriver) => setSelectedRide({ id, isDriver })}
-        /> */}
-        <MyRidesSection
-  upcomingRides={upcomingRides}
-  driverRides={driverRidesList}
-  pastRides={pastRides}
-  onCreateRide={() => setIsCreateRideOpen(true)}
-  onEditRide={(id) => {
-    setEditingRideId(id);
-    setIsEditRideOpen(true);
-  }}
-  onRequests={(id) => setRequestsRideId(id)}
-  onRideClick={(id, isDriver) => setSelectedRide({ id, isDriver })}   // ← adicione esta linha
-
-/>
+          onRideClick={(id, isDriver) => setSelectedRide({ id, isDriver })}
+        />
       </div>
+      {/* Modais permanecem iguais */}
       <NotificationModal isOpen={isNotificationOpen} onClose={() => setIsNotificationOpen(false)} notifications={notifications} onMarkRead={markNotificationRead} onMarkAllRead={markAllNotificationsRead} />
       {selectedRide && (
         <RideDetailModal

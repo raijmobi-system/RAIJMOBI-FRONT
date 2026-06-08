@@ -11,6 +11,7 @@ interface MyRidesSectionProps {
   upcomingRides: MyRide[];
   driverRides: DriverRide[];
   pastRides: MyRide[];
+  pendingCountMap: Record<string, number>; // ← nova prop
   onCreateRide: () => void;
   onEditRide: (rideId: string) => void;
   onRequests: (rideId: string) => void;
@@ -21,6 +22,7 @@ export const MyRidesSection = ({
   upcomingRides,
   driverRides,
   pastRides,
+  pendingCountMap, // ← recebe aqui
   onCreateRide,
   onEditRide,
   onRequests,
@@ -113,7 +115,7 @@ export const MyRidesSection = ({
               seats={ride.seats}
               price={ride.price}
               passengers={ride.passengers}
-              pendingCount={0} // viria do estado
+              pendingCount={pendingCountMap[ride.id] || 0} // ← usa o mapa
               onEdit={() => onEditRide(ride.id)}
               onRequests={() => onRequests(ride.id)}
               onClick={() => onRideClick(ride.id, true)}

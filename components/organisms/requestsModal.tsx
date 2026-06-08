@@ -33,7 +33,7 @@ export const RequestsModal = ({ isOpen, onClose, requests, onAccept, onReject }:
         <div className={css({ p: "5", spaceY: "3" })}>
           {requests.length === 0 ? (
             <div className={css({ textAlign: "center", py: "6" })}>
-              <Icon name="group_off" size={48} className={css({ color: "outlineVariant/40", mb: "3" })} />
+              <Icon name="group_off" size={48} className={css({ color: "outlineVariant/120", mb: "3" })} />
               <p className={css({ fontSize: "bodyMd", color: "onSurfaceVariant" })}>Nenhuma solicitação pendente.</p>
             </div>
           ) : (

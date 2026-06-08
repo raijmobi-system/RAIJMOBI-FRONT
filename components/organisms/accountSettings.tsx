@@ -10,7 +10,6 @@ interface AccountSettingsProps {
 export const AccountSettings = ({ onPersonalInfo, onPrivacy, onLogout }: AccountSettingsProps) => {
   const items = [
     { icon: "person", label: "Informações Pessoais", color: "brand.green", onClick: onPersonalInfo },
-    { icon: "security", label: "Privacidade & Segurança", color: "brand.green", onClick: onPrivacy },
     { icon: "logout", label: "Sair da Conta", color: "error", onClick: onLogout, isError: true },
   ];
 

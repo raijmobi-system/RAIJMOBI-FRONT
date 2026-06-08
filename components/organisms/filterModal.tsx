@@ -50,7 +50,6 @@ export const FilterModal = ({ isOpen, onClose, onApply }: FilterModalProps) => {
             <p className={css({ display: "flex", alignItems: "center", gap: "2", fontSize: "labelLg", fontWeight: "semibold", mb: "3" })}><Icon name="psychology" size={20} className={css({ color: "brand.green" })} /> Pesquisa Inteligente com IA</p>
             <div className={css({ position: "relative" })}>
               <Input placeholder="Descreva sua viagem ideal..." className={css({ pr: "12" })} />
-              <button className={css({ position: "absolute", right: "2", top: "1/2", transform: "translateY(-50%)", bg: "brand.green", p: "2", rounded: "full", color: "white" })}><Icon name="auto_awesome" size={18} /></button>
             </div>
           </div>
 

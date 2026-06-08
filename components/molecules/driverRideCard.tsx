@@ -33,6 +33,11 @@ export const DriverRideCard = ({
   onRequests,
   onClick,
 }: DriverRideCardProps) => {
+  // Calcula a cor do ícone dinamicamente
+  const iconColorClass = pendingCount === 0
+    ? css({ color: "#333333" }) // cinza bem escuro
+    : "";
+
   return (
     <div onClick={onClick} className={css({
       bg: "white",
@@ -66,7 +71,7 @@ export const DriverRideCard = ({
           <Icon name="edit" size={16} /> Editar
         </Button>
         <Button variant="outline" onClick={onRequests} className={css({ flex: 1, py: "2", fontSize: "12px", display: "flex", alignItems: "center", gap: "1", position: "relative" })}>
-          <Icon name="group" size={16} /> Solicitações
+          <Icon name="group" size={16} className={iconColorClass} /> Solicitações
           {pendingCount > 0 && (
             <span className={css({ position: "absolute", top: "-1", right: "-1", bg: "error", color: "white", fontSize: "9px", fontWeight: "bold", w: "4", h: "4", rounded: "full", display: "flex", alignItems: "center", justifyContent: "center" })}>{pendingCount}</span>
           )}

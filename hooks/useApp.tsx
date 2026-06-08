@@ -127,7 +127,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       title: "Raijmobi Express - Mossoró",
       driver: {
         name: "Rafael Fernandes",
-        photo: "https://lh3.googleusercontent.com/aida-public/AB6AXuDcC3IhLdXUf0oxN_AVlMYLpo7A1vT1tEmhQoS3zfEIaPuor4bHCLS4ye9F0GFysVV849x2tI_MaQEQhkrXEEeOQ6D8VoSyA70eIYxGIj5FsAk-a_2ncGQT6tLIt9vDHqmL-ZDcigr5fS0RsggLBxtwCy9SpKbx94tMiz0JWP42YNSSnF_jO5zKzq8Mu1KIKSh_mzo9DWYo9SMtunzO6cMhF0pufxUXh3IkDvqJrXS0H1l8iXSU9BQX9Fhl2bwm2DIWbTeBZ6XcZlqX",
+        photo:"https://ui-avatars.com/api/?name=Rafael+Fernandes&background=547812&color=fff&size=128",
         rating: 4.8,
       },
       vehicle: { model: "Ford Ka", color: "Branco", plate: "ABC-1234", year: "2022" },
@@ -321,11 +321,11 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   });
 
   const [pendingRequests, setPendingRequests] = useState<Record<string, any[]>>({
-    "driver-mossoro": [
+    "KIW-D01": [
       { name: "Ana Clara", photo: "https://ui-avatars.com/api/?name=Ana+Clara&background=aad466&color=fff&size=64", rating: 4.7, requestDate: "19/12/2024" },
       { name: "Pedro Lucas", photo: "https://ui-avatars.com/api/?name=Pedro+Lucas&background=547812&color=fff&size=64", rating: 4.5, requestDate: "20/12/2024" },
     ],
-    "driver-caico": [
+    "KIW-D02": [
       { name: "Carla Souza", photo: "https://ui-avatars.com/api/?name=Carla+Souza&background=aad466&color=fff&size=64", rating: 4.9, requestDate: "21/12/2024" },
     ],
   });
