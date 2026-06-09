@@ -15,10 +15,15 @@ export const Input = ({ className, error, ...props }: InputProps) => {
             px: "4",
             py: "2.5",
             bg: "surfaceContainerLow",
-            border: "none",
+            border: "2px solid",
+            borderColor: "outlineVariant",       
             rounded: "full",
             fontSize: "bodyMd",
-            _focus: { ring: "2px", ringColor: "brand.green/30", outline: "none" },
+            _focus: {
+              borderColor: "brand.green",          
+              ring: "none",                        
+              outline: "none"
+            },
             _placeholder: { color: "outlineVariant/60" },
           }),
           className
