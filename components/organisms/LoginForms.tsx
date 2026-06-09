@@ -37,6 +37,12 @@ export const LoginForms = ({ onLogin }: LoginFormsProps) => {
       <Button type="submit" loading={loading} className={css({ w: "full" })}>Entrar</Button>
       <div className={css({ textAlign: "center", mt: "2" })}>
         <Link href="/auth/forgot-password" className={css({ fontSize: "sm", color: "brand.green", _hover: { textDecoration: "underline" } })}>Esqueceu a senha?</Link>
+        <p className={css({ textAlign: "center", mt: "2", fontSize: "bodyMd", color: "onSurfaceVariant" })}>
+          Não tem uma conta?{" "}
+          <Link href="/auth/register" className={css({ color: "brand.green", _hover: { textDecoration: "underline" } })}>
+            Cadastre-se
+          </Link>
+        </p>
       </div>
     </form>
   );
