@@ -90,6 +90,7 @@ interface AppContextType {
   pendingRequests: Record<string, { name: string; photo: string; rating: number; requestDate: string }[]>;
   chatData: Record<string, ChatContact>;
   notifications: Notification[];
+  submitRating: (target: "driver" | "passenger", targetId: string, rating: number, comment: string) => void;
   // Funções
   addVehicle: (vehicle: Vehicle) => void;
   updateVehicle: (index: number, vehicle: Vehicle) => void;
@@ -110,6 +111,13 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
+
+  const submitRating = useCallback((target: "driver" | "passenger", targetId: string, rating: number, comment: string) => {
+    console.log(`Avaliação: ${target} ${targetId} → ${rating} estrelas. "${comment}"`);
+    // Aqui você pode integrar com uma API real
+  }, []);
+
+
   // Dados mockados (baseados no HTML original)
   const [vehicles, setVehicles] = useState<Vehicle[]>([
     { model: "Ford Ka", color: "Branco", plate: "ABC-1234" },
@@ -127,7 +135,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       title: "Raijmobi Express - Mossoró",
       driver: {
         name: "Rafael Fernandes",
-        photo:"https://ui-avatars.com/api/?name=Rafael+Fernandes&background=547812&color=fff&size=128",
+        photo: "https://ui-avatars.com/api/?name=Rafael+Fernandes&background=547812&color=fff&size=128",
         rating: 4.8,
       },
       vehicle: { model: "Ford Ka", color: "Branco", plate: "ABC-1234", year: "2022" },
@@ -498,31 +506,61 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     await new Promise(resolve => setTimeout(resolve, 1000));
   }, []);
 
+  // const value: AppContextType = {
+  //   submitRating: (target: "driver" | "passenger", targetId: string, rating: number, comment: string) => void;
+  //   user: { name: "Fernando", email: "fernando@email.com", phone: "(84) 9 9999-9999", rating: 4.8 },
+  //   vehicles,
+  //   payments,
+  //   rideDetails: rideDetailsData,
+  //   myRides: myRidesDetails,
+  //   driverRides,
+  //   pendingRequests,
+  //   chatData,
+  //   notifications,
+  //   addVehicle,
+  //   updateVehicle,
+  //   addPayment,
+  //   updatePayment,
+  //   addDriverRide,
+  //   updateDriverRide,
+  //   acceptPassenger,
+  //   rejectPassenger,
+  //   sendChatMessage,
+  //   markNotificationRead,
+  //   markAllNotificationsRead,
+  //   getUnreadCount,
+  //   requestPasswordReset,
+  //   resetPassword,
+  //   submitRating,
+  // };
+
+
   const value: AppContextType = {
-    user: { name: "Fernando", email: "fernando@email.com", phone: "(84) 9 9999-9999", rating: 4.8 },
-    vehicles,
-    payments,
-    rideDetails: rideDetailsData,
-    myRides: myRidesDetails,
-    driverRides,
-    pendingRequests,
-    chatData: chatDataMock,
-    notifications,
-    addVehicle,
-    updateVehicle,
-    addPayment,
-    updatePayment,
-    addDriverRide,
-    updateDriverRide,
-    acceptPassenger,
-    rejectPassenger,
-    sendChatMessage,
-    markNotificationRead,
-    markAllNotificationsRead,
-    getUnreadCount,
-    requestPasswordReset,
-    resetPassword,
-  };
+  user: { name: "Fernando", email: "fernando@email.com", phone: "(84) 9 9999-9999", rating: 4.8 },
+  vehicles,
+  payments,
+  rideDetails: rideDetailsData,
+  myRides: myRidesDetails,
+  driverRides,
+  pendingRequests,
+  chatData,          // agora usando o estado correto
+  notifications,
+  addVehicle,
+  updateVehicle,
+  addPayment,
+  updatePayment,
+  addDriverRide,
+  updateDriverRide,
+  acceptPassenger,
+  rejectPassenger,
+  sendChatMessage,
+  markNotificationRead,
+  markAllNotificationsRead,
+  getUnreadCount,
+  requestPasswordReset,
+  resetPassword,
+  submitRating,      // única referência necessária
+};
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

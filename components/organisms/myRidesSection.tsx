@@ -16,6 +16,8 @@ interface MyRidesSectionProps {
   onEditRide: (rideId: string) => void;
   onRequests: (rideId: string) => void;
   onRideClick: (rideId: string, isDriver: boolean) => void;
+  onRateDriver?: (rideId: string, driverName: string) => void;
+
 }
 
 export const MyRidesSection = ({
@@ -27,6 +29,7 @@ export const MyRidesSection = ({
   onEditRide,
   onRequests,
   onRideClick,
+  onRateDriver,   
 }: MyRidesSectionProps) => {
   const [activeTab, setActiveTab] = useState<"upcoming" | "driver" | "past">("upcoming");
 
@@ -72,6 +75,7 @@ export const MyRidesSection = ({
               driverName={ride.driver.name}
               date={ride.date}
               onClick={() => onRideClick(ride.id, false)}
+              onRateDriver={() => onRateDriver?.(ride.id, ride.driver.name)}
             />
           ))}
         </div>
@@ -137,6 +141,7 @@ export const MyRidesSection = ({
               driverName={ride.driver.name}
               date={ride.date}
               onClick={() => onRideClick(ride.id, false)}
+              onRateDriver={() => onRateDriver?.(ride.id, ride.driver.name)}   
             />
           ))}
         </div>

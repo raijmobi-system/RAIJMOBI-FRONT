@@ -16,10 +16,20 @@ interface RideDetailModalProps {
   onParticipate?: () => void;
   onCancel?: () => void;
   onEdit?: () => void;
+  onRatePassenger?: (name: string) => void; // ← nova prop
 }
 
-export const RideDetailModal = ({ isOpen, onClose, ride, context, onParticipate, onCancel, onEdit }: RideDetailModalProps) => {
-    console.log("Modal chamado:", { isOpen, ride });
+export const RideDetailModal = ({
+  isOpen,
+  onClose,
+  ride,
+  context,
+  onParticipate,
+  onCancel,
+  onEdit,
+  onRatePassenger, // ← adicione aqui
+}: RideDetailModalProps) => {
+  console.log("Modal chamado:", { isOpen, ride });
 
   if (!isOpen || !ride) return null;
 
@@ -86,7 +96,47 @@ export const RideDetailModal = ({ isOpen, onClose, ride, context, onParticipate,
             <div className={css({ bg: "surfaceContainerLow/50", rounded: "2xl", p: "4", textAlign: "center" })}><p className={css({ fontSize: "xs", color: "secondary", mb: "1" })}>👥 Vagas</p><p className={css({ fontWeight: "semibold", color: "onSurface" })}>{ride.seats}</p></div>
             <div className={css({ bg: "surfaceContainerLow/50", rounded: "2xl", p: "4", textAlign: "center" })}><p className={css({ fontSize: "xs", color: "secondary", mb: "1" })}>💵 Preço</p><p className={css({ fontWeight: "semibold", color: "brand.green" })}>{ride.price}</p></div>
           </div>
-
+         {context === "driver" && (ride as DriverRide).passengers && (ride as DriverRide).passengers.length > 0 && (
+  <div className={css({ bg: "surfaceContainerLow/50", rounded: "2xl", p: "4" })}>
+    <p className={css({ fontSize: "labelLg", fontWeight: "semibold", mb: "2" })}>👥 Passageiros</p>
+    <div className={css({ spaceY: "2" })}>
+      {(ride as DriverRide).passengers.map((p, idx) => (
+        <div key={idx} className={css({ display: "flex", alignItems: "center", justifyContent: "space-between" })}>
+          <div className={css({ display: "flex", alignItems: "center", gap: "2" })}>
+            <img
+              src={`https://ui-avatars.com/api/?name=${p.replace(" ", "+")}&background=ccc&color=fff&size=32`}
+              className={css({ w: "8", h: "8", rounded: "full" })}
+              alt={p}
+            />
+            <span className={css({ fontSize: "bodyMd", fontWeight: "medium" })}>{p}</span>
+          </div>
+          {onRatePassenger && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onRatePassenger(p);
+              }}
+              className={css({
+                fontSize: "labelSm",
+                color: "brand.green",
+                fontWeight: "bold",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                gap: "1",
+                _hover: { textDecoration: "underline" },
+              })}
+            >
+              <Icon name="star" size={16} /> Avaliar
+            </button>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+)}
           {showJoin && <Button onClick={onParticipate} className={css({ w: "full", mt: "2" })}><Icon name="check_circle" size={20} /> Participar desta carona</Button>}
           {showCancel && <Button variant="error" onClick={onCancel} className={css({ w: "full", mt: "2" })}><Icon name="cancel" size={20} /> Cancelar participação</Button>}
           {showCancelDriver && <Button variant="error" onClick={onCancel} className={css({ w: "full", mt: "2" })}><Icon name="cancel" size={20} /> Cancelar Carona</Button>}
