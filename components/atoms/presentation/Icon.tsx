@@ -17,7 +17,7 @@ const iconRecipe = cva({
     size: {
       sm: { width: '4', height: '4' },
       md: { width: '5', height: '5' },
-      lg: { width: '6', height: '6' },
+      lg: { width: '5.5', height: '5.5' },
       xl: { width: '8', height: '8' },
     },
     color: {

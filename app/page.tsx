@@ -1,8 +1,17 @@
-
+import { Flex } from '../styled-system/jsx';
+import {SearchComponent} from '../components/organisms';
+import { Tune, WandStars } from '@material-symbols-svg/react'; // Importados na instância!
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gray-100">
-      <p>JSJNDJNDJDSNSJDDSNJDSN</p>
-    </main>
+    <Flex direction="column">
+     
+      <SearchComponent 
+      placeholder="Filtrar relatórios..."
+      showFilter={true}
+      showAI={true}
+      filterIcon={<Tune />}
+      aiIcon={<WandStars />}/>
+      
+    </Flex>
   );
 }
