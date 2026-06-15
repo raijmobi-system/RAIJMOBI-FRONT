@@ -6,7 +6,6 @@ const skeletonRecipe = cva({
   base: {
     backgroundColor: 'gray.200',
     borderRadius: 'md',
-    animation: 'pulse 1.5s infinite ease-in-out',
   },
   variants: {
     variant: {
