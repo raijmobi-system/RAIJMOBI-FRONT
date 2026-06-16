@@ -1,11 +1,10 @@
 import React from "react";
 import { css } from "../../styled-system/css"; 
 
-// Definindo a interface das Props para garantir tipagem forte
 interface FrameComponentProps {
-  titleElements?: React.ReactNode; // Aceita Icone, Texto ou ambos na ordem que passarem
-  actions?: React.ReactNode;       // Quantos botões o usuário quiser
-  children: React.ReactNode;       // O conteúdo principal (qualquer elemento HTML)
+  titleElements?: React.ReactNode;
+  actions?: React.ReactNode;      
+  children: React.ReactNode;      
 }
 
 export default function FrameComponent({ titleElements, actions, children }: FrameComponentProps) {
@@ -14,40 +13,35 @@ export default function FrameComponent({ titleElements, actions, children }: Fra
       className={css({ 
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '400px', // Garante o mínimo de 400px de altura
-        height: 'auto',     // Permite expandir conforme o conteúdo cresce
-        width: '100%',      // Opcional: Garante que ocupe a largura disponível
+        minHeight: '400px',
+        height: 'auto',    
+        width: '100%',     
       })}
     >
+      {/* 1. DIV DO HEADER: titleElements e actions juntos na mesma div/row */}
       <div 
         className={css({
           display: 'flex',
-          justifyContent: 'space-between', // Separa o título das ações nas extremidades
-          alignItems: 'center',            // Alinha verticalmente no centro
-          padding: '16px',                 // Ajuste o padding como preferir
+          flexDirection: 'row', // Garante que fiquem na mesma linha
+          alignItems: 'center', // Alinha verticalmente ao centro
+          gap: '16px',          // Espaçamento entre os elementos do header
+          padding: '16px',
+          justifyContent: 'space-between', // Distribui titleElements à esquerda e actions à direita                 
         })} 
         aria-label="decorative"
       >
-        {/* Div de Title: Mantém a ordem exata do que for passado em titleElements */}
-        <div className={css({ display: 'flex', alignItems: 'center', gap: '8px' })}>
-          {titleElements}
-        </div>
-
-        {/* Div de Actions: Renderiza quantos botões forem passados */}
-        <div className={css({ display: 'flex', alignItems: 'center', gap: '12px' })}>
-          {actions}
-        </div>
+        {titleElements}
+        {actions}
       </div>
 
-      {/* Div de Conteúdo Principal */}
+      {/* 2. DIV DO CHILDREN: Conteúdo Principal */}
       <div 
         className={css({ 
-          flex: '1',          // Faz o conteúdo ocupar o espaço restante se o frame crescer
-          padding: '16px'     // Ajuste conforme seu design system
+          flex: '1',          
+          padding: '16px'     
         })} 
         aria-label="main"
       >
-        {/* Aceita qualquer elemento HTML/React aqui dentro */}
         {children} 
       </div>
     </section>

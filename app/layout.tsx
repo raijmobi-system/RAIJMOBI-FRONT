@@ -1,7 +1,14 @@
+"use client";
+
 import type { Metadata } from "next";
 import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css"; 
 import { css } from "../styled-system/css"; 
+import { Flex } from '../styled-system/jsx';
+import {Heading,Text} from '../components/atoms/typography';
+import {Avatar} from '../components/atoms/presentation';
+import {Link} from '../components/atoms/action';
+import { Opacity } from "@material-symbols-svg/react";
 
 const hankenGrotesk = Hanken_Grotesk({
   subsets: ['latin'],
@@ -9,10 +16,7 @@ const hankenGrotesk = Hanken_Grotesk({
   variable: '--font-hanken-grotesk', 
 });
 
-export const metadata: Metadata = {
-  title: "Raij Mobi - Início",
-  description: "Plataforma de mobilidade Raij Mobi",
-};
+
 
 export default function RootLayout({
   children,
@@ -48,11 +52,20 @@ export default function RootLayout({
           `,
         },
       })}>
-        
-        <header className={css({ bg: 'gray.800', color: 'white', py: '4' })}>
-          <div className={css({ maxW: '6xl', mx: 'auto', textAlign: 'center', px: '4' })}>
-            <h1 className={css({ fontSize: '3xl', fontWeight: 'bold' })}>{metadata.title as string}</h1>
-          </div>
+
+        <header className={css({ bg: 'gray.800', color: 'white', py: '4' ,display: 'flex',flexDirection: 'row',justifyContent:'space-between',px:'6',backgroundColor:'black',opacity:'1',})}>
+          <Flex direction='column' >
+            <Heading as='h3' color='green' className={css({ textAlign: 'center', mb: '2' })}>
+              Olá, Usuário!
+            </Heading>
+            <Text className={css({ textAlign: 'center' })}>
+              Para onde vai hoje?
+            </Text>
+          </Flex>
+          <Link>
+            <Avatar src="cliente.jpeg" size="lg" />
+          </Link>
+
         </header>
 
         {/* Adicionei estilos básicos no aside para não quebrar a estrutura flex */}

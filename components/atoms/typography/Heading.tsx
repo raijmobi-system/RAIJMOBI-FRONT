@@ -21,12 +21,17 @@ const headingRecipe = cva({
     align: {
       left: { textAlign: 'left' },
       center: { textAlign: 'center' },
+    },
+    color: {
+      green: {color: 'green.700'},
+      black: {color: 'black'},
     }
   },
   defaultVariants: {
     size: 'h2',
     weight: 'bold',
     align: 'left',
+    color: 'black',
   }
 });
 

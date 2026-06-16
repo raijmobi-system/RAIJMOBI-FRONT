@@ -29,14 +29,14 @@ export default function SearchComponent({
     <div className={css({ 
       display: 'flex', 
       alignItems: 'center',           
-      padding: '4',
+      padding: '2.5',
       backgroundColor: 'white',
-      borderRadius: '40px',
+      borderRadius: 'md',
       gap: '2' // Adicionado para os itens não colarem uns nos outros
     })}>
       
       {/* O ícone de lupa geralmente é padrão para busca, mas fica fixo */}
-      <Icon size='xl'>
+      <Icon size='lg'>
         <Search />
       </Icon>
       
@@ -44,7 +44,7 @@ export default function SearchComponent({
 
       {/* 2. Renderização condicional para o botão de IA */}
       {showAI && aiIcon && (
-        <Button variant='outline' className='IA-suggest' onClick={onAIClick}>
+        <Button variant='solid' className='IA-suggest' onClick={onAIClick}>
           <Icon size='lg'>
             {aiIcon}
           </Icon>
