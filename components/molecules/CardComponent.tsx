@@ -29,14 +29,20 @@ export default function CardComponent({
       className={flex({
         direction: flexStyles.direction,
         wrap: flexStyles.wrap,
+        alignItems: 'center', // Alinha os itens ao centro verticalmente
         gap: '4', // Espaçamento interno padrão entre os itens do card
         borderRadius: '10px', // Seu arredondamento de 10px fixo
         overflow: 'hidden', // Garante que a imagem respeite o arredondamento
         // Aplica a animação condicionalmente (exemplo usando transição sutil ou pulse)
         transition: 'all 0.3s ease',
         _hover: animate ? { transform: 'translateY(-4px)', boxShadow: 'md' } : {},
-        width: '100%', // Define a largura como 100% para o card
-        justifyContent: 'space-between'
+        width: '100%', 
+        justifyContent: 'space-between',
+        background: 'white',
+        minHeight: '72px',
+        paddingInline: '4',
+        border: '1px solid',
+        borderColor: 'gray.200',
       })}
     >
       {Image}

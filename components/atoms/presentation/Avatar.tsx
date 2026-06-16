@@ -17,39 +17,50 @@ const avatarRecipe = cva({
     size: {
       sm: { width: '8', height: '8', fontSize: 'xs' },
       md: { width: '10', height: '10', fontSize: 'sm' },
+      fx: { width: '46px', height: '46px', fontSize: 'md' },
       lg: { width: '16', height: '16', fontSize: 'lg' },
       xl: { width: '24', height: '24', fontSize: '2xl' },
+    },
+    // 1. Adicionamos a nova variante de borda aqui
+    hasBorder: {
+      true: {
+        borderWidth: '2px',
+        borderStyle: 'solid',
+        borderColor: 'blue.500', // Altere para a cor desejada do seu design system
+      }
     }
   },
   defaultVariants: {
     size: 'md',
+    // Não precisamos definir hasBorder aqui, por padrão ele será undefined (falso)
   }
 });
 
-// A imagem que vai dentro do contêiner
 const avatarImageRecipe = cva({
   base: {
     width: '100%',
     height: '100%',
-    objectFit: 'cover', // Faz a imagem preencher o espaço sem distorcer
+    objectFit: 'cover', 
   }
 });
 
+// 2. Adicionamos a propriedade opcional na Interface
 interface AvatarProps {
   src?: string;
   alt?: string;
   initials?: string;
-  size?: 'sm' | 'md' | 'lg' | 'xl'; // Restringimos para os tamanhos exatos da sua recipe
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  hasBorder?: boolean; // Propriedade opcional para a borda
 }
 
-// Criamos os dois elementos
 export const AvatarRoot = styled('div', avatarRecipe);
 export const AvatarImage = styled('img', avatarImageRecipe);
 
-// Componente React simples para juntar os dois de forma amigável
-export function Avatar({ src, alt, initials, size = 'md' }: AvatarProps) {
+// 3. Recebemos e repassamos a prop no componente React
+export function Avatar({ src, alt, initials, size = 'md', hasBorder }: AvatarProps) {
   return (
-    <AvatarRoot size={size}>
+    // Repassamos a prop hasBorder para o AvatarRoot
+    <AvatarRoot size={size} hasBorder={hasBorder}>
       {src ? (
         <AvatarImage src={src} alt={alt} />
       ) : (

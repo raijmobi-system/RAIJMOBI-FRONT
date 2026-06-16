@@ -25,7 +25,6 @@ export default function FrameComponent({ titleElements, actions, children }: Fra
           flexDirection: 'row', // Garante que fiquem na mesma linha
           alignItems: 'center', // Alinha verticalmente ao centro
           gap: '16px',          // Espaçamento entre os elementos do header
-          padding: '16px',
           justifyContent: 'space-between', // Distribui titleElements à esquerda e actions à direita                 
         })} 
         aria-label="decorative"

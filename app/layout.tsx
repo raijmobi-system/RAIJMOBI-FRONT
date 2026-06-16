@@ -9,6 +9,9 @@ import {Heading,Text} from '../components/atoms/typography';
 import {Avatar} from '../components/atoms/presentation';
 import {Link} from '../components/atoms/action';
 import { Opacity } from "@material-symbols-svg/react";
+import { LinkImage } from "@/components/molecules";
+import {  Search, DirectionsCar, Chat,Person} from '@material-symbols-svg/react';
+import { Icon } from "@/components/atoms/presentation";
 
 const hankenGrotesk = Hanken_Grotesk({
   subsets: ['latin'],
@@ -53,17 +56,17 @@ export default function RootLayout({
         },
       })}>
 
-        <header className={css({ bg: 'gray.800', color: 'white', py: '4' ,display: 'flex',flexDirection: 'row',justifyContent:'space-between',px:'6',backgroundColor:'black',opacity:'1',})}>
-          <Flex direction='column' >
-            <Heading as='h3' color='green' className={css({ textAlign: 'center', mb: '2' })}>
-              Olá, Usuário!
+        <header className={css({ bg: 'gray.800', color: 'white', py: '4' ,display: 'flex',flexDirection: 'row',justifyContent:'space-between',px:'6',backgroundColor:'rgb(38, 38, 38)',opacity:'1',maxHeight:'88px'})}>
+          <Flex direction='column' alignItems='start'>
+            <Heading as='h1' size='xl' weight="semibold" color='green' className={css({ textAlign: 'center', mb: '2' })}>
+              Olá, Pablo Murilo !
             </Heading>
-            <Text className={css({ textAlign: 'center' })}>
+            <Text color="white" className={css({ textAlign: 'center' })}>
               Para onde vai hoje?
             </Text>
           </Flex>
           <Link>
-            <Avatar src="cliente.jpeg" size="lg" />
+            <Avatar src="cliente.jpeg" size="fx" />
           </Link>
 
         </header>
@@ -81,17 +84,37 @@ export default function RootLayout({
         })}
       >
           <nav>
-            <ul className={css({ display: 'flex', gap: '4', listStyle: 'none', p: 0 })}>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </nav>
+  <ul className={css({ display: 'flex', gap: '4', listStyle: 'none', p: 0 })}>
+    <li>
+      <LinkImage
+        href="" 
+        Icon={<Icon><Search/></Icon>} 
+      />
+    </li>
+    <li>
+      <LinkImage
+        href="" 
+        Icon={<Icon><DirectionsCar/></Icon>} 
+      />
+    </li>
+    <li>
+      <LinkImage
+        href="" 
+        Icon={<Icon><Chat/></Icon>} 
+      />
+    </li>
+    <li>
+      <LinkImage
+        href="" 
+        Icon={<Icon><Person/></Icon>} 
+      />
+    </li>
+  </ul>
+</nav>
         </aside>
 
         {/* O flex: 1 garante que o main estique e empurre o footer para o final da tela */}
-        <main className={css({ flex: '1', p: '4' })}>{children}</main>
+        <main className={css({ flex: '1' })}>{children}</main>
 
         <footer className={css({
            gridArea: 'bottom',
