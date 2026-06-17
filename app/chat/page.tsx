@@ -14,7 +14,8 @@ import { css } from "@/styled-system/css";
 export default function ChatPage() {
     return (
         <FrameComponent>
-            <CardComponent 
+            <>
+            <CardComponent fullWidth={true} direction="row"
             
             content={<Flex direction="row" gap={4}>
                 <Avatar src="cliente.jpeg" />
@@ -23,9 +24,26 @@ export default function ChatPage() {
                     <Text>Tô chegando no ponto</Text>
                 </Flex>
             </Flex>}
-            extraContent={<Text className={css({ fontSize: 'sm', color: 'gray.500', height: '100%' })}>14:25</Text>}
-            direction="row"
-            />
+            extraContent={
+            <Flex  direction='column'>
+                <Text>14:59</Text>
+                <Icon></Icon>
+            </Flex>}/>
+            <CardComponent fullWidth={true} direction="row"
+            
+            content={<Flex direction="row" gap={4}>
+                <Avatar src="cliente.jpeg" />
+                <Flex direction="column">
+                    <Text><b>Pablo Murilo</b></Text>
+                    <Text>Tô chegando no ponto</Text>
+                </Flex>
+            </Flex>}
+            extraContent={
+            <Flex  direction='column'>
+                <Text>14:59</Text>
+                <Icon></Icon>
+            </Flex>}/>
+            </>
         </FrameComponent>
     );
 }

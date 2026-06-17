@@ -13,6 +13,7 @@ const textRecipe = cva({
       lg: { fontSize: 'lg', lineHeight: 'relaxed' },
     },
     weight: {
+      thin: { fontWeight: 'thin'},
       normal: { fontWeight: 'normal' },
       medium: { fontWeight: 'medium' },
       bold: { fontWeight: 'bold' },

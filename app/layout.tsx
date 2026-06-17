@@ -12,7 +12,7 @@ import { Opacity } from "@material-symbols-svg/react";
 import { LinkImage } from "@/components/molecules";
 import {  Search, DirectionsCar, Chat,Person} from '@material-symbols-svg/react';
 import { Icon } from "@/components/atoms/presentation";
-
+import Navigation from "@/components/fixed/Navigation";
 const hankenGrotesk = Hanken_Grotesk({
   subsets: ['latin'],
   display: 'swap',
@@ -66,7 +66,7 @@ export default function RootLayout({
             </Text>
           </Flex>
           <Link>
-            <Avatar src="cliente.jpeg" size="fx" />
+            <Avatar src="cliente.jpeg" size="fx" css={{ alignSelf: 'start' }} />
           </Link>
 
         </header>
@@ -83,51 +83,22 @@ export default function RootLayout({
           md: { display: 'flex', flexDirection: 'column' },
         })}
       >
-          <nav>
-  <ul className={css({ display: 'flex', gap: '4', listStyle: 'none', p: 0 })}>
-    <li>
-      <LinkImage
-        href="" 
-        Icon={<Icon><Search/></Icon>} 
-      />
-    </li>
-    <li>
-      <LinkImage
-        href="" 
-        Icon={<Icon><DirectionsCar/></Icon>} 
-      />
-    </li>
-    <li>
-      <LinkImage
-        href="" 
-        Icon={<Icon><Chat/></Icon>} 
-      />
-    </li>
-    <li>
-      <LinkImage
-        href="" 
-        Icon={<Icon><Person/></Icon>} 
-      />
-    </li>
-  </ul>
-</nav>
+          <Navigation direction="column"/>
         </aside>
 
-        {/* O flex: 1 garante que o main estique e empurre o footer para o final da tela */}
-        <main className={css({ flex: '1' })}>{children}</main>
+        <main className={css({ flex: '1',minWidth: '0',width: '100%', overflowX: 'hidden'})}>{children}</main>
 
         <footer className={css({
            gridArea: 'bottom',
           background: 'gray.200',
           padding: '4',
           display: 'flex',
+          flexDirection: 'row',
           justifyContent: 'space-around',
           // Desktop: Some completamente do layout
           md: { display: 'none' },
            })}>
-          <div className={css({ maxW: '6xl', mx: 'auto', textAlign: 'center', px: '4' })}>
-            <p>&copy; {new Date().getFullYear()} Raij Mobi. Todos os direitos reservados.</p>
-          </div>
+          <Navigation direction="row"/>
         </footer>
 
       </body>

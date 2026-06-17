@@ -15,7 +15,8 @@ export default function FrameComponent({ titleElements, actions, children }: Fra
         flexDirection: 'column',
         minHeight: '400px',
         height: 'auto',    
-        width: '100%',     
+        width: '100%',
+        paddingInline: '4',     
       })}
     >
       {/* 1. DIV DO HEADER: titleElements e actions juntos na mesma div/row */}
@@ -35,7 +36,9 @@ export default function FrameComponent({ titleElements, actions, children }: Fra
 
       {/* 2. DIV DO CHILDREN: Conteúdo Principal */}
       <div 
-        className={css({ 
+        className={css({
+          display:'flex',
+          flexDirection:'column',
           flex: '1',          
           padding: '16px'     
         })} 

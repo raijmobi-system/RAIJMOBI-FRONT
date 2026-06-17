@@ -1,6 +1,7 @@
 import React from "react";
 import { cva } from '../../styled-system/css';
 import { flex } from '../../styled-system/patterns';
+import { Colorize } from "@material-symbols-svg/react";
 
 // 1. Definição do CVA (As regras visuais ficam isoladas aqui fora)
 const linkMoleculeRecipe = cva({
@@ -41,6 +42,10 @@ const linkMoleculeRecipe = cva({
         paddingInline: '0', 
         justifyContent: 'center' 
       }
+    },
+    color: {
+      muted: { color: 'rgba(255, 255, 255, 0.6)' },
+      active: { color: 'gray' },
     }
   },
   // 3. Comcompound Variants (Regras especiais baseadas na combinação de propriedades)
