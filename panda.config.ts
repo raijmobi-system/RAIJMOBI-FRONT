@@ -5,12 +5,14 @@ export default defineConfig({
   preflight: true,
 
   // Where to look for your css declarations
-  include: ["./src/**/*.{js,jsx,ts,tsx}",
-     "./pages/**/*.{js,jsx,ts,tsx}",
+  include: ["./app/**/*.{js,jsx,ts,tsx}",
+     "./pages/**/*.{js,jsx,ts,tsx}", // <- Ajustado para "Components" com C maiúsculo
      "./components/**/*.{js,jsx,ts,tsx}"],
 
   // Files to exclude
   exclude: [],
+
+  jsxFramework: 'react',
 
   // Useful for theme customization
   theme: {
