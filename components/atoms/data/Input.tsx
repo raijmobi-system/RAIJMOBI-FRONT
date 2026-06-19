@@ -4,12 +4,12 @@ import { cva } from '../../../styled-system/css';
 const inputRecipe = cva({
   base: {
     width: '100%',
-    height: '10', // Mesma altura (md) do nosso botão para alinhar perfeitamente
+    height: '11',
     paddingX: '3',
     fontSize: 'sm',
     backgroundColor: 'white',
     borderWidth: '1px',
-    borderColor: 'gray.300',
+    borderColor: 'transparent',
     borderRadius: 'md',
     color: 'gray.900',
     outline: 'none',

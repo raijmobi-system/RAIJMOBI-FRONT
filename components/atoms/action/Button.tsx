@@ -4,6 +4,7 @@ import { cva } from '../../../styled-system/css';
 const buttonRecipe = cva({
   base: {
     display: 'inline-flex',
+    width: 'auto',
     alignItems: 'center',
     justifyContent: 'center',
     gap: '2', // Espaço entre um ícone e o texto, se houver
@@ -21,9 +22,9 @@ const buttonRecipe = cva({
   variants: {
     variant: {
       solid: { 
-        backgroundColor: 'blue.600', 
+        backgroundColor: 'green.600', 
         color: 'white', 
-        _hover: { backgroundColor: 'blue.700' } 
+        _hover: { backgroundColor: 'green.700' } 
       },
       outline: { 
         backgroundColor: 'transparent',
@@ -42,11 +43,18 @@ const buttonRecipe = cva({
       sm: { height: '8', paddingX: '3', fontSize: 'sm' },
       md: { height: '10', paddingX: '4', fontSize: 'md' },
       lg: { height: '12', paddingX: '6', fontSize: 'lg' },
+    },
+    // Adicionando variantes para largura
+    width: {
+      auto: { width: 'auto' },
+      full: { width: '100%' },
+      'fixed-square' : { width: '40px', height: '40px' }
     }
   },
   defaultVariants: {
     variant: 'solid',
     size: 'md',
+    width: 'fixed-square'
   }
 });
 

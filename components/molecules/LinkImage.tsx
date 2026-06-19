@@ -1,0 +1,108 @@
+import React from "react";
+import { cva } from '../../styled-system/css';
+import { flex } from '../../styled-system/patterns';
+import { Colorize } from "@material-symbols-svg/react";
+
+// 1. Definição do CVA (As regras visuais ficam isoladas aqui fora)
+const linkMoleculeRecipe = cva({
+  base: {
+    display: 'flex',
+    alignItems: 'center',
+    height: '40px',
+    borderRadius: '8px',
+    
+    backgroundColor: 'transparent', 
+    
+    
+    textDecoration: 'none',
+    transition: 'all 0.2s ease',
+    gap: '2',
+  },
+  variants: {
+    direction: {
+      row: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingInline: '3',
+      },
+      column: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        paddingInline: '2',
+        height: 'auto', // Se for coluna com texto, 40px pode ser pouco, deixamos auto ou uma minHeight
+        minHeight: '40px',
+      }
+    },
+    width: {
+      full: { width: '100%' },
+      auto: { width: 'auto' },
+      'fixed-square': { 
+        width: '40px', 
+        height: '40px',
+        paddingInline: '0', 
+        justifyContent: 'center' 
+      }
+    },
+    color: {
+      muted: { color: 'rgba(255, 255, 255, 0.6)' },
+      active: { color: 'gray' },
+    }
+  },
+  // 3. Comcompound Variants (Regras especiais baseadas na combinação de propriedades)
+  compoundVariants: [
+    {
+      direction: 'column',
+      width: 'fixed-square',
+      css: {
+        height: '40px', // Garante o quadrado perfeito se o usuário moscou nas propriedades
+      }
+    }
+  ],
+  defaultVariants: {
+    direction: 'row',
+    width: 'full'
+  }
+});
+
+interface LinkMoleculeProps {
+  href: string;
+  Icon: React.ReactNode;
+  text?: string;
+  extraElement?: React.ReactNode;
+  direction?: 'row' | 'column';
+  width?: 'auto' | 'full' | 'fixed-square';
+}
+
+export default function LinkMolecule({
+  href,
+  Icon,
+  text,
+  extraElement,
+  direction,
+  width
+}: LinkMoleculeProps) {
+  
+  // Executa o CVA passando as props recebidas
+  const className = linkMoleculeRecipe({ direction, width });
+
+  return (
+    <a href={href} className={className}>
+      {/* Container do Bloco Principal (Ícone + Texto) */}
+      <div className={flex({ 
+        direction: direction, 
+        alignItems: 'center', 
+        gap: '2',
+        justifyContent: 'center',
+        width: direction === 'column' ? '100%' : 'auto'
+      })}>
+        <span className={flex({ shrink: 0, alignItems: 'center', justifyContent: 'center' })}>{Icon}</span>
+        {text && <span className="text-sm font-medium text-gray-700 truncate">{text}</span>}
+      </div>
+
+      {/* Elemento Extra (Só faz sentido visual se não for um quadrado fixo de 40x40) */}
+      {extraElement && width !== 'fixed-square' && (
+        <span className={flex({ shrink: 0 })}>{extraElement}</span>
+      )}
+    </a>
+  );
+}
