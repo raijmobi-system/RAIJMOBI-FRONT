@@ -3,21 +3,24 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css"; 
-import { css } from "../styled-system/css"; 
-import { Flex } from '../styled-system/jsx';
-import {Heading,Text} from '../components/atoms/typography';
-import {Avatar} from '../components/atoms/presentation';
-import {Link} from '../components/atoms/action';
+import { css } from "@/styled-system/css"; 
+import { Flex } from '@/styled-system/jsx';
+import {Heading,Text} from '@/components/atoms/typography';
+import {Avatar} from '@/components/atoms/presentation';
+import {Link} from '@/components/atoms/action';
 import { Opacity } from "@material-symbols-svg/react";
 import { LinkImage } from "@/components/molecules";
 import {  Search, DirectionsCar, Chat,Person} from '@material-symbols-svg/react';
 import { Icon } from "@/components/atoms/presentation";
 import Navigation from "@/components/fixed/Navigation";
+import { usePathname } from 'next/navigation';
+import StandardHeader from '@/components/fixed/StandardHeader'
 const hankenGrotesk = Hanken_Grotesk({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-hanken-grotesk', 
 });
+import DynamicHeader from "@/components/fixed/DynamicHeader"; // Importa o gerenciador que criamos acima
 
 
 
@@ -26,6 +29,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
   return (
     <html
       lang="pt-BR"
@@ -56,20 +60,9 @@ export default function RootLayout({
         },
       })}>
 
-        <header className={css({ bg: 'gray.800', color: 'white', py: '4' ,display: 'flex',flexDirection: 'row',justifyContent:'space-between',px:'6',backgroundColor:'rgb(38, 38, 38)',opacity:'1',maxHeight:'88px'})}>
-          <Flex direction='column' alignItems='start'>
-            <Heading as='h1' size='xl' weight="semibold" color='green' className={css({ textAlign: 'center', mb: '2' })}>
-              Olá, Pablo Murilo !
-            </Heading>
-            <Text color="white" className={css({ textAlign: 'center' })}>
-              Para onde vai hoje?
-            </Text>
-          </Flex>
-          <Link>
-            <Avatar src="cliente.jpeg" size="fx" css={{ alignSelf: 'start' }} />
-          </Link>
+        <DynamicHeader/>
 
-        </header>
+        
 
         {/* Adicionei estilos básicos no aside para não quebrar a estrutura flex */}
         <aside

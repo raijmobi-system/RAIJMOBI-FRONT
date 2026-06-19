@@ -49,7 +49,7 @@ interface AvatarProps {
   src?: string;
   alt?: string;
   initials?: string;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'fx';
   hasBorder?: boolean; // Propriedade opcional para a borda
 }
 
