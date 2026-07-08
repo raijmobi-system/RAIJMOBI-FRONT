@@ -2,7 +2,18 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+First, run the install:
+```bash
+npm -i
+```
+
+Create a .local.env file and paste that:
+```bash
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_51Tc4wm4xBFfQ1Lek1dLOzd8ypNJBtOsiqwjAcBS36QwLoXCYveadTr70Wk4TpZXK6W2CeisVewXs02MS8bg3GLCs00lV7loR1s
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIzaSyAbyqEsX2D2QNFY1WYr1Wg40GM99DARUmY
+```
+
+After,run the development server:
 
 ```bash
 npm run dev
